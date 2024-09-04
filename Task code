@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, h2, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the body */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container to center content and give padding */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* Call-to-action section styling */
+        .cta {
+            background: #e2e2e2;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .cta h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta .btn {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+        }
+
+        .cta .btn:hover {
+            background: #555;
+        }
+
+        /* Contact form styling */
+        .contact-form {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form input[type="submit"] {
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background: #555;
+        }
+
+        /* Slideshow styling */
+        .slideshow {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .slideshow img {
+            width: 100%;
+            max-width: 500px;
+            display: none;
+        }
+
+        /* Footer styling */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Toggle content styling */
+        .toggle-content {
+            display: none;
+            background: #ddd;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Our Service</h1>
+            <p>Your success starts here.</p>
+        </div>
+    </header>
+
+    <!-- Call-to-action section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to get started?</h2>
+            <p>Join us today and take the first step towards a brighter future.</p>
+            <a href="#signup" class="btn">Sign Up Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="container">
+        <h2>Contact Us</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </section>[p7\
+    km10]
+
+    <!-- Image Slideshow Section -->
+    <section class="container slideshow">
+        <h2>Our Gallery</h2>
+        <img src="image1.jpg" id="slide1" style="display: inline-block;">
+        <img src="image2.jpg" id="slide2">
+        <img src="image3.jpg" id="slide3">
+    </section>
+
+    <!-- Toggle Content Section -->
+    <section class="container"><main>
+        0
+78+ ujh;''   </main>
+        <button id="toggleButton">Show More Info</button>
+        <div class="toggle-content" id="moreInfo">
+            <p>Here is some more information about our services and how we can help you achieve your goals. This content can be toggled with the button above.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactive elements -->
+    <script>
+        // Form validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill out all fields.');
+                event.preventDefault();
+            } else {
+                alert('Form submitted successfully!');
+            }
+        });
+
+        // Simple image slideshow
+        var currentSlide = 1;
+        var totalSlides = 3;
+
+        function showSlide(slideIndex) {
+            for (var i = 1; i <= totalSlides; i++) {
+                document.getElementById('slide' + i).style.display = 'none';
+            }
+            document.getElementById('slide' + slideIndex).style.display = 'block';
+        }
+
+        setInterval(function() {
+            currentSlide++;
+            if (currentSlide > totalSlides) {
+                currentSlide = 1;
+            }
+            showSlide(currentSlide);
+        }, 3000); // Change image every 3 seconds
+
+        // Toggle content
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var content = document.getElementById('moreInfo');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                this.textContent = 'Hide More Info';
+            } else {
+                content.style.display = 'none';
+                this.textContent = 'Show More Info';
+            }
+        });
+    </script>
+</body>
+</html>
